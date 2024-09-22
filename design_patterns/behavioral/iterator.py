@@ -11,30 +11,27 @@ class IteratorBase(Iterator[T]):
         self._reversed = reversed
 
 
-class ReturnEveryElementIterator(IteratorBase[T]):
-    """
-    A "regular" iterator which returns every element of the collection.
-    """    
+class SkipIterator(IteratorBase[T]):
+    STEP = 1
     def __next__(self) -> T:
         try:
             value = self._collection[self._position]
-            self._position += -1 if self._reversed else 1
+            self._position += -self.STEP if self._reversed else self.STEP
             return value
         except IndexError:
             raise StopIteration
 
+class ReturnEveryElementIterator(SkipIterator):
+    """
+    A "regular" iterator which returns every element of the collection.
+    """
+    pass
 
-class ReturnEveryOtherElementIterator(IteratorBase[T]):
+class ReturnEveryOtherElementIterator(SkipIterator):
     """
     An iterator that returns every other element of the collection.
     """
-    def __next__(self) -> T:
-        try:
-            value = self._collection[self._position]
-            self._position += -2 if self._reversed else 2
-            return value
-        except IndexError:
-            raise StopIteration
+    STEP = 2
 
 
 class SequenceIterable(Sequence[T]):
