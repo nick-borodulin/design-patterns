@@ -1,4 +1,3 @@
-from typing import Literal
 import pytest
 from design_patterns.structural.flyweight import InvalidLetter, LetterFactory
 
