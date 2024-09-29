@@ -1,14 +1,14 @@
-from abc import ABC, abstractmethod
 from typing import Self, override
 
+from design_patterns.creation.singleton import SingletonMetaClass
 
 class NoHelpError(Exception):
     pass
 
-class Topic(ABC):
+class Topic(metaclass=SingletonMetaClass):
     @property
-    @abstractmethod
-    def help_string(self) -> str: ...
+    def help_string(self) -> str:
+        raise NotImplementedError()
 
 class NoHelpTopic(Topic):
     @property
