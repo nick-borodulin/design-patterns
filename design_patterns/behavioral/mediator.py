@@ -1,10 +1,10 @@
-
 """
 The idea: given a collection of objects (for example, UI elements - 
 buttons, text boxes, etc.), be able to alter their state reacting
 to the changes made to one (or severa) objects inside the collection.
 This collective state is managed by the Mediator object.
 """
+
 from abc import ABC, abstractmethod
 from typing import override
 
@@ -15,10 +15,12 @@ class Widget:
 
     def changed(self) -> None:
         self._mediator.widget_changed(self)
-        
+
+
 class Mediator(ABC):
     @abstractmethod
     def widget_changed(self, widget: Widget) -> None: ...
+
 
 class DialogMediator(Mediator):
     def __init__(self) -> None:
@@ -29,27 +31,31 @@ class DialogMediator(Mediator):
     @property
     def okay_button(self) -> "Button":
         return self._okay_button
-    
+
     @property
     def cancel_button(self) -> "Button":
         return self._cancel_button
-    
+
     @property
     def text_box(self) -> "TextBox":
         return self._text_box
-    
+
     @override
     def widget_changed(self, widget: Widget) -> None:
         if widget is self._text_box:
-            self._okay_button.enabled = self._cancel_button.enabled = (self._text_box.text != "")
+            self._okay_button.enabled = self._cancel_button.enabled = (
+                self._text_box.text != ""
+            )
         # Other logic based on the the state of the 3 components
 
+
 class Button(Widget):
-    def __init__(self,
-                 text: str,
-                 enabled: bool,
-                 mediator: Mediator,
-                 ) -> None:
+    def __init__(
+        self,
+        text: str,
+        enabled: bool,
+        mediator: Mediator,
+    ) -> None:
         super().__init__(mediator)
         self._text: str = text  # The text displayed on the button
         self._enabled = enabled
@@ -65,19 +71,20 @@ class Button(Widget):
     def clicked(self) -> None:
         self.changed()
 
+
 class TextBox(Widget):
-    def __init__(self,
-                 mediator: Mediator,
-                 ) -> None:
+    def __init__(
+        self,
+        mediator: Mediator,
+    ) -> None:
         super().__init__(mediator)
         self._text: str = ""
 
     @property
     def text(self) -> str:
         return self._text
-    
+
     @text.setter
     def text(self, new_text) -> None:
         self._text = new_text
         self.changed()
-    

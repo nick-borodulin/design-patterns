@@ -8,20 +8,23 @@ deep copy, it should implement __copy__() or __deepcopy__() methods.
 
 We'll impelemnt an explicit Prototype interface that always returns deep copies.
 """
+
 from copy import deepcopy
 from dataclasses import dataclass
 from typing import Self
 
+
 class Prototype:
     def clone(self) -> Self:
         return deepcopy(self)
-    
+
+
 @dataclass
 class Rectangle(Prototype):
     width: int
     height: int
 
+
 @dataclass
 class Circle(Prototype):
     radius: int
-

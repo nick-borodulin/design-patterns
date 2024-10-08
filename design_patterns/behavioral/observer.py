@@ -4,8 +4,8 @@ from time import sleep
 
 class Observer(ABC):
     @abstractmethod
-    def update(self, subject: "Subject") -> None:
-        ...
+    def update(self, subject: "Subject") -> None: ...
+
 
 class Subject(ABC):
     def __init__(self) -> None:
@@ -13,13 +13,14 @@ class Subject(ABC):
 
     def attach_observer(self, observer: Observer) -> None:
         self._observers.append(observer)
-    
+
     def detach_observer(self, observer: Observer) -> None:
         self._observers.remove(observer)
-    
+
     def notify(self) -> None:
         for observer in self._observers:
             observer.update(self)
+
 
 class Timer(Subject):
     def __init__(self, seconds: float) -> None:
@@ -44,5 +45,3 @@ class Clock(Observer):
     def update(self, subject: Subject) -> None:
         if subject is self._timer:
             self._timer_went_off = True
-
-

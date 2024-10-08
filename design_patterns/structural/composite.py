@@ -1,9 +1,9 @@
-
-
 from typing import Self
+
 
 class InvalidLeafError(Exception):
     pass
+
 
 class Component:
     def operation(self) -> str:
@@ -20,10 +20,11 @@ class Leaf(Component):
     def operation(self) -> str:
         return "child_operation"
 
+
 class Composite(Component):
     def __init__(self) -> None:
         self._children: list[Component] = []
-    
+
     def add_child(self, child: Component) -> None:
         self._children.append(child)
 
@@ -39,4 +40,3 @@ class Composite(Component):
         for child in self._children:
             child_operations += child.operation()
         return child_operations
-

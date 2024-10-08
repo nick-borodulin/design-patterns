@@ -9,10 +9,12 @@ from typing import TypeVar
 
 T = TypeVar("T")
 
+
 class Strategy(ABC):
     """
     Our Strategy interface is going to be working with lists.
     """
+
     @abstractmethod
     def act_on_list(self, data: list[T], /, *args, **kwargs) -> list[T]: ...
 
@@ -23,7 +25,7 @@ class RemoveTail(Strategy):
             return []
         data.pop()
         return data
-    
+
 
 class RemoveHead(Strategy):
     def act_on_list(self, data: list[T], /, *args, **kwargs) -> list[T]:

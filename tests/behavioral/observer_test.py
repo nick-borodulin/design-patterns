@@ -1,5 +1,6 @@
 from design_patterns.behavioral.observer import Clock, Timer
 
+
 def test_observer() -> None:
     timer = Timer(0.1)
     clock = Clock(timer=timer)

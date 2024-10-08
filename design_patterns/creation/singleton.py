@@ -1,6 +1,7 @@
 from threading import Lock
 from typing import Any
 
+
 class SingletonMetaClass(type):
     _lock = Lock()
     _instances = {}
@@ -11,6 +12,7 @@ class SingletonMetaClass(type):
                 cls._instances[cls] = super().__call__(*args, **kwds)
             return cls._instances[cls]
 
+
 class SingletonTypeInt(metaclass=SingletonMetaClass):
     def __init__(self, param: int) -> None:
         self._param = param
@@ -18,7 +20,8 @@ class SingletonTypeInt(metaclass=SingletonMetaClass):
     @property
     def param(self) -> int:
         return self._param
-    
+
+
 class SingletonTypeStr(metaclass=SingletonMetaClass):
     def __init__(self, param: str) -> None:
         self._param = param
@@ -26,4 +29,3 @@ class SingletonTypeStr(metaclass=SingletonMetaClass):
     @property
     def param(self) -> str:
         return self._param
-    

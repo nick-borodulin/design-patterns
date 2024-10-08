@@ -1,19 +1,16 @@
-from abc import abstractmethod,  ABC
+from abc import abstractmethod, ABC
 
 
 class TextBuilder(ABC):
     @abstractmethod
-    def add_paragraph(self, paragraph: str) -> None:
-        ...
+    def add_paragraph(self, paragraph: str) -> None: ...
 
     @abstractmethod
-    def add_sentence(self, sentence: str) -> None:
-        ...
+    def add_sentence(self, sentence: str) -> None: ...
 
     @property
     @abstractmethod
-    def text(self) -> str:
-        ...
+    def text(self) -> str: ...
 
 
 class PlainTextBuilder(TextBuilder):
@@ -33,7 +30,8 @@ class PlainTextBuilder(TextBuilder):
     @property
     def text(self) -> str:
         return self._text
-    
+
+
 class HTMLTextBuilder(TextBuilder):
     def __init__(self) -> None:
         self._html = str()
@@ -47,7 +45,8 @@ class HTMLTextBuilder(TextBuilder):
     @property
     def text(self) -> str:
         return self._html
-    
+
+
 class TextGenerator:
     def generate_text(self, builder: TextBuilder) -> None:
         builder.add_paragraph("Paragraph One")
@@ -62,7 +61,7 @@ class Client:
         plain_text_builder = PlainTextBuilder()
         generator.generate_text(plain_text_builder)
         return plain_text_builder.text
-    
+
     def generate_html(self) -> str:
         generator = TextGenerator()
         html_text_builder = HTMLTextBuilder()

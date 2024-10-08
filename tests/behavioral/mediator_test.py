@@ -1,5 +1,6 @@
 from design_patterns.behavioral.mediator import DialogMediator
 
+
 def test_dialog() -> None:
     dialog = DialogMediator()
     assert not dialog.okay_button.enabled
@@ -13,4 +14,3 @@ def test_dialog() -> None:
     dialog.text_box.text = ""
     assert not dialog.okay_button.enabled
     assert not dialog.cancel_button.enabled
-    
