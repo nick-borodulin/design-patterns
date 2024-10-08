@@ -1,4 +1,10 @@
 
+"""
+The idea: given a collection of objects (for example, UI elements - 
+buttons, text boxes, etc.), be able to alter their state reacting
+to the changes made to one (or severa) objects inside the collection.
+This collective state is managed by the Mediator object.
+"""
 from abc import ABC, abstractmethod
 from typing import override
 
