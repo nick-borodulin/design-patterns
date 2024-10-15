@@ -32,6 +32,7 @@ def test_incorrect_state_transitions_in_open_state() -> None:
     context = Context()
     assert type(context.state) is Init
     context.initialize()
+    assert type(context.state) is Open
     with pytest.raises(IncorrectStateError):
         context.initialize()
     with pytest.raises(IncorrectStateError):

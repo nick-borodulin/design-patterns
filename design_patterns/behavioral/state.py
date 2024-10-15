@@ -4,15 +4,14 @@ of which represents one state. Each class is a singleton. A "state" interface
 defines a method that passes control to the next state.
 """
 
-from typing import Self, override
-from design_patterns.creation.singleton import SingletonMetaClass
+from typing import override
 
 
 class IncorrectStateError(ValueError):
     pass
 
 
-class State(metaclass=SingletonMetaClass):
+class State:
     def __init__(self, context: "Context") -> None:
         self._context = context
 
@@ -25,7 +24,7 @@ class State(metaclass=SingletonMetaClass):
     def close(self) -> None:
         raise IncorrectStateError
 
-    def change_state(self, new_state: Self) -> None:
+    def change_state(self, new_state: "State") -> None:
         self._context.state = new_state
 
 
@@ -33,14 +32,14 @@ class Init(State):
     @override
     def initialize(self) -> None:
         # Do work
-        self.change_state(Open())
+        self.change_state(new_state=Open(context=self._context))
 
 
 class Open(State):
     @override
     def open(self) -> None:
         # Do work
-        self.change_state(Close())
+        self.change_state(new_state=Close(context=self._context))
 
 
 class Close(State):
@@ -53,7 +52,7 @@ class Close(State):
 
 class Context:
     def __init__(self) -> None:
-        self._state = Init(self)
+        self._state = Init(context=self)
 
     @property
     def state(self) -> State:
