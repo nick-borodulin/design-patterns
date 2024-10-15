@@ -6,7 +6,7 @@ authors = ["nick-borodulin <nikitaborodulin@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.12"
+python = "^3.12"
 pytest = "^8.3.2"
 mypy = "^1.11.1"
 ruff = "^0.5.7"
