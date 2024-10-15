@@ -1,3 +1,14 @@
+"""
+Abstract Factory pattern is an extension of Factory Method. The latter is used when we need to
+construct just one object based on a set of inputs, whereas Abstract Factory is used when we need to
+build interrelated objects.
+For example, below, we have 2 factories,
+1) RoundWindowsBrickWalls, builds round windows and brich walls,
+2) SquareWindowsWoodenWalls, builds square windows and wooden walls.
+In this example, it is important that a certain type of windows only being built with certain type of walls,
+so we are using an Abstract Factory pattern and not Factory Method.
+"""
+
 from abc import ABC, abstractmethod
 
 

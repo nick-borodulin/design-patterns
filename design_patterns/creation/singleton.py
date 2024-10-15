@@ -1,3 +1,7 @@
+"""
+If you need one global (to your process) instance of something, you'd create it using "metaclass=SingletonMetaClass"
+"""
+
 from threading import Lock
 from typing import Any
 

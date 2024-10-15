@@ -1,3 +1,8 @@
+"""
+Composite pattern is used when there's a need to perform a certain action either on a single object
+or on a container. 
+"""
+
 from typing import Self
 
 

@@ -1,3 +1,9 @@
+"""
+A Flighweight patter is used when we have many similar objects, where each one should be a singleton.
+In this example (below), we have an Enligh alphabet, and we want each letter to be represented by a Letter object.
+In the LetterFactory we have a map that looks up a Letter object based on an letter and returns that object.
+"""
+
 from abc import ABC, abstractmethod
 
 

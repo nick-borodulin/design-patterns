@@ -1,3 +1,10 @@
+"""
+This example demonstrates Chain of Responsbility pattern where there is a chain (list) of objects,
+and each of them tells the client if it's able to handle a request. If it is able to handle it, 
+it does it, and if it cannot handle it, it forwards the request to its successor (usually, a parent object).
+The request travels up the chain of responsibility until one of the objects in the chain handles it.
+"""
+
 from typing import Self, override
 
 from design_patterns.creation.singleton import SingletonMetaClass

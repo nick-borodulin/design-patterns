@@ -1,5 +1,8 @@
 """
 This example combines Command, a behavioral pattern and Composite, a structural pattern.
+Command pattern consits of command interface, one or more concrete command implementations.
+Each of them can be have a single Receiver (SimpleCommand, below) or multiple receivers (CompositeCommand).
+Receiver is an object that Command acts upon.
 """
 
 from typing import Any, Self

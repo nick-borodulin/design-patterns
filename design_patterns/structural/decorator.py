@@ -1,3 +1,9 @@
+"""
+Decorator pattern: "wrap" your component with one or more decorators. For example (below), TextBox is the base component,
+and you could potentially add a border or/and a scroll bar to it and then call "draw" on the composite object. 
+This composite object will still have the VisualComponent interface, regardless of whether 0, 1 or 2 decoraters are being used.
+"""
+
 from abc import abstractmethod, ABC
 
 

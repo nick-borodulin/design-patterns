@@ -1,3 +1,9 @@
+"""
+An Observer regiesters a callback with the main object (in this example, Timer). When the timer goes off,
+it notifies the observer (Clock) about this event, and the clock "wakes up" and is able to build some kind of 
+logic upon receiving this event.
+"""
+
 from abc import ABC, abstractmethod
 from time import sleep
 

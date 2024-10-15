@@ -1,3 +1,10 @@
+"""
+Iterator pattern is used when the client needs to represent iteration logic in a class.
+In the example below, we have an array (a python Sequence type) and 2 iterators, one of which
+visits every object in the sequence (ReturnEveryElementIterator), and the other 
+visits every other object (ReturnEveryOtherElementIterator).
+"""
+
 from operator import contains
 from typing import Sequence, Iterator, Type, TypeVar
 

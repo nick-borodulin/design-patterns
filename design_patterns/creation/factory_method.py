@@ -1,3 +1,8 @@
+"""
+This is the most used design pattern, Factory Method. Logisitics is the interface class, which can deliver using Truck or Ship.
+You would choose either RoadLogistics or SeaLogistics and just say "deliver".
+"""
+
 from abc import ABC, abstractmethod
 
 

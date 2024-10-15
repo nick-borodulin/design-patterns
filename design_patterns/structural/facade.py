@@ -1,3 +1,11 @@
+"""
+Facade pattern is usually used when we are given an existing third-party API and we want to simplify it or adapt to our
+needs in some way. Here (below), we have an external insurance API, which has 2 operations: creating a patient (Patient) and 
+filing a new claim for that patient (Claim).
+We think it's more convenient to create a facade (InsuranceClaimFacade) that combines these 2 operations into one.
+"""
+
+
 class Patient:
     def create(self, name: str) -> str:
         return f"patient_create_{name}"

@@ -1,3 +1,9 @@
+"""
+Proxy is a type of a "wrapper" that usually controls access to the underlying object.
+In this example, we have the base object (Object), and a ProtectionProxy class that gives or denies
+access to that object based on current user's permissions.
+"""
+
 from enum import auto, StrEnum
 from abc import abstractmethod, ABC
 

@@ -1,3 +1,9 @@
+"""
+Builder pattern builds complex objects bit by bit. In the example below, we have a TextGenerator class that 
+builds a document from sentences and paragraphs. The user has 2 options of how the document is being stored,
+as HTML or as plain text. These 2 options are reprenseted by HTMLTextBuilder and PlainTextBuilder classes, the builders.
+"""
+
 from abc import abstractmethod, ABC
 
 
